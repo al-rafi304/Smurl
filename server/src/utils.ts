@@ -1,6 +1,6 @@
-import * as env from "./env";
+import * as env from "./config/env.js";
 import { customAlphabet } from "nanoid";
-import Smurl from "./models/smurl";
+import Smurl from "./models/smurl.js";
 
 const nanoid = customAlphabet(env.URL_ALPHABETS, env.URL_LENGTH);
 

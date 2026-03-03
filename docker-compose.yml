@@ -12,6 +12,7 @@ services:
     depends_on:
       - mongo
       - redis
+      - postgres
     volumes:
       - ./server:/usr/src/app  # Mount the application code for hot-reloading
       - /usr/src/app/node_modules  # Prevents overwriting node_modules during mounting
@@ -30,6 +31,24 @@ services:
       timeout: 10s
       retries: 3 
 
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: smurl
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+
   redis:
     image: redis:latest
     container_name: redis
@@ -47,3 +66,4 @@ services:
 volumes:
   mongo_data:
   redis_data:
+  postgres_data:

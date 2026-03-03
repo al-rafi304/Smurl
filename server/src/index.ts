@@ -1,14 +1,14 @@
 import http from 'http';
 import express from 'express';
 import 'express-async-errors';
-import loggingHandler from './middlewares/loggingHandler';
-import connectDB from './database';
-import * as env from './env';
+import { loggingHandler } from './middlewares/loggingHandler.js';
+import connectDB from './database.js';
+import * as env from './config/env.js';
 
 const server = express();
 let httpServer: ReturnType<typeof http.createServer>;
 
-import smurlRoutes from './routes/smurl';
+import smurlRoutes from './routes/smurl.js';
 
 const start = async () => {
     server.use(express.urlencoded({ extended: true }));

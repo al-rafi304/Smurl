@@ -1,6 +1,6 @@
 import { body, param, validationResult } from 'express-validator';
-import * as env from './env';
-import * as utils from './utils';
+import * as env from './config/env.js';
+import * as utils from './utils.js';
 import { NextFunction, Request, Response } from 'express';
 
 export const createSmurlValidator = [

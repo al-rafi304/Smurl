@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import Smurl from "../models/smurl";
-import { CreateSmurlDto, RedirectSmurlDto } from "../dtos";
+import Smurl from "../models/smurl.js";
+import { CreateSmurlDto, RedirectSmurlDto } from "../dtos.js";
 import { validationResult } from "express-validator";
-import { generateAddress } from "../utils";
+import { generateAddress } from "../utils.js";
 
 export const createSmurl = async (
     req: Request<{}, {}, CreateSmurlDto>,

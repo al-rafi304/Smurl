@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createSmurl, redirectSmurl } from "../controllers/shortUrl";
-import * as validator from "../validators";
+import { createSmurl, redirectSmurl } from "../controllers/shortUrl.js";
+import * as validator from "../validators.js";
 
 const router = Router();
 

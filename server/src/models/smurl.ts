@@ -1,5 +1,5 @@
 import mongoose, { Model, Schema, Document } from "mongoose";
-import * as env from '../env';
+import * as env from '../config/env.js';
 
 interface ISmurl extends Document {
     target: string;
